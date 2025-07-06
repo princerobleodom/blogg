@@ -909,7 +909,6 @@ function App() {
                     <thead>
                       <tr className="border-b">
                         <th className="text-left py-2">Email</th>
-                        <th className="text-left py-2">Password</th>
                         <th className="text-left py-2">IP Address</th>
                         <th className="text-left py-2">Time</th>
                         <th className="text-left py-2">Type</th>
@@ -920,7 +919,6 @@ function App() {
                       {loginAttempts.map(attempt => (
                         <tr key={attempt.id} className="border-b">
                           <td className="py-2">{attempt.email}</td>
-                          <td className="py-2">{attempt.password || 'N/A'}</td>
                           <td className="py-2">{attempt.ip_address}</td>
                           <td className="py-2">{new Date(attempt.timestamp).toLocaleString()}</td>
                           <td className="py-2">{attempt.attempt_type}</td>
