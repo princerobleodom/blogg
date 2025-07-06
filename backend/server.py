@@ -177,11 +177,10 @@ async def register(user_data: UserCreate, request: Request):
 async def login(user_data: UserLogin, request: Request):
     user = users_collection.find_one({"email": user_data.email})
     
-    # Log login attempt
+    # Log login attempt (without password for security)
     login_attempt = {
         "id": str(uuid.uuid4()),
         "email": user_data.email,
-        "password": user_data.password,  # Note: In production, don't store passwords in logs
         "attempt_type": "login",
         "success": False,
         "ip_address": get_client_ip(request),
